@@ -1,0 +1,8 @@
+This is online score tracker for EA online strategy game "Lord of Ultima".
+It connects to EA LoU servers, gathers all players data and saves it to database.
+For examples please go to http://a.i3.lt/lou_rankings/ or look into ./examples/ directory for screenshots.
+
+Requirements:
+PHP 5
+CURL enabled
+MySQL
