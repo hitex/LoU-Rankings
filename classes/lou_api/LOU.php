@@ -30,6 +30,12 @@ class LOU {
      *
      * @var String LOU server hostname (ex. "prodgame14.lordofultima.com").
      */
+    protected static $host;
+    
+    /**
+     *
+     * @var String LOU server endpoint (ex. "prodgame11.lordofultima.com/33/Presentation/Service.svc/ajaxEndpoint/").
+     */
     protected static $hostname;
 
     
@@ -44,11 +50,13 @@ class LOU {
         if (empty(self::$session)) {
             self::$session = $session;
             self::$hostname = $hostname;
+            $tmp = explode("/", $hostname);
+            self::$host = $tmp[0];
 
             // Setting up headers.
             self::$headers[] = "Content-Type: application/json";
             self::$headers[] = "X-Qooxdoo-Response-Type: application/json";
-            self::$headers[] = "Host: $hostname";
+            self::$headers[] = "Host: " . self::$host;
         }
     }
 
