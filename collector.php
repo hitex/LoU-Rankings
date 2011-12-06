@@ -16,6 +16,12 @@ switch ($_POST['id']){
         require_once 'classes/lou_api/LOU.php';
 		require_once 'config/db.php';
         require_once 'config/server.php';
+        require_once 'config/collector.php';
+        
+        if ($_POST['collector_password'] != $_CONFIG['collector_password']) {
+            echo '<h2>Incorrect password!</h2>';
+            break;
+        }
 
         Database::connect($_CONFIG['db_host'], $_CONFIG['db_user'], $_CONFIG['db_password'], $_CONFIG['db_database']);
 
@@ -32,6 +38,7 @@ switch ($_POST['id']){
                     <h2>LOU Server 43 collector</h2>
                     Enter key:<br/>
                     <input type="text" name="key"/><br/>
+                    <input type="text" name="collector_password"/><br/>
                     <input type="hidden" value="collect" name="id"/>
                     <input type="submit" value="Submit" name="get"/>
                 </form>';
