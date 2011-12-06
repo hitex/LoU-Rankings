@@ -95,11 +95,11 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
     Input alliance names, separated by comma:<br/>
     <textarea type="text" name="alliances" cols="100"><?php echo $alliances_str ?></textarea><br/>
     <input type="submit" value="Submit" name="get"/><br/>
-    <a href="http://a.i3.lt/lou_rankings/index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=score">Score</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=avg_score">Avg. Score</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=rank">Rank</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=cities">Cities</a>
-	| <a href="http://a.i3.lt/lou_rankings/index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=members">Members</a>
+    <a href="index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=score">Score</a>
+    | <a href="index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=avg_score">Avg. Score</a>
+    | <a href="index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=rank">Rank</a>
+    | <a href="index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=cities">Cities</a>
+	| <a href="index.php?id=alliances&alliances=<?php echo $alliances_str ?>&type=members">Members</a>
 </form>
 
 <?php
@@ -107,4 +107,4 @@ echo $cgtg->draw();
 ?>
 
 <br/>
-Link: <input type="text" value="http://a.i3.lt/lou_rankings/index.php?id=alliances&alliances=<?php echo $alliances_str ?>" />
+Link: <input type="text" value="<?php echo $_CONFIG['server_url'] ?>/index.php?id=alliances&alliances=<?php echo $alliances_str ?>" />

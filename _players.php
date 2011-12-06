@@ -123,13 +123,13 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
     Input player names, separated by comma:<br/>
     <textarea type="text" name="players" cols="100"><?php echo $players_str ?></textarea><br/>
     <input type="submit" value="Submit" name="get"/><br/>
-    <a href="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>&type=score">Score</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>&type=rank">Rank</a>
-	| <a href="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>&type=cities">Cities</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>&type=offence">Offensive Fame</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>&type=offence_r">Offensive Rank</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>&type=defence">Defensive Fame</a>
-    | <a href="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>&type=defence_r">Defensive Rank</a>
+    <a href="index.php?id=players&players=<?php echo $players_str ?>&type=score">Score</a>
+    | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=rank">Rank</a>
+	| <a href="index.php?id=players&players=<?php echo $players_str ?>&type=cities">Cities</a>
+    | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=offence">Offensive Fame</a>
+    | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=offence_r">Offensive Rank</a>
+    | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence">Defensive Fame</a>
+    | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence_r">Defensive Rank</a>
 </form>
 
 <?php
@@ -137,4 +137,4 @@ echo $cgtg->draw();
 ?>
 
 <br/>
-Link: <input type="text" value="http://a.i3.lt/lou_rankings/index.php?id=players&players=<?php echo $players_str ?>" />
+Link: <input type="text" value="<?php echo $_CONFIG['server_url'] ?>/index.php?id=players&players=<?php echo $players_str ?>" />

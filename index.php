@@ -1,3 +1,15 @@
+<?php
+<?php
+error_reporting(0);
+ini_set("display_errors", "0");
+//error_reporting(E_ALL);
+//ini_set("display_errors", "1");
+
+require_once 'classes/lou_rankings/Database.php';
+require_once("config/db.php");
+require_once("config/server.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +89,7 @@ body {
     <div id="container">
 	<div id="header">
 		<h1>
-            <a href="http://www.lordofultima.com/" target="_blank"><img src="images/loulogo.png" alt="LoU" /></a> world 43 timeline</h1>
+            <a href="http://www.lordofultima.com/" target="_blank"><img src="images/loulogo.png" alt="LoU" /></a> <?php echo $_CONFIG['server_world']; ?> timeline</h1>
 	</div>
 	<div id="navigation">
 		<ul>
@@ -89,13 +101,6 @@ body {
 	</div>
 			<div id="content">
 <?php
-error_reporting(0);
-ini_set("display_errors", "0");
-//error_reporting(E_ALL);
-//ini_set("display_errors", "1");
-
-require_once 'classes/lou_rankings/Database.php';
-require_once("config/db.php");
 
 Database::connect($_CONFIG['db_host'], $_CONFIG['db_user'], $_CONFIG['db_password'], $_CONFIG['db_database']);
 
