@@ -1,4 +1,3 @@
 <?php
-//It should look like this: "prodgameXX.lordofultima.com"
-$_CONFIG['server_hostname'] = "";
+$_CONFIG['server_hostname'] = "prodgameXX.lordofultima.com/YY/Presentation/Service.svc/ajaxEndpoint/";
 ?>

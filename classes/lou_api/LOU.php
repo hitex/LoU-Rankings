@@ -64,7 +64,7 @@ class LOU {
      */
     protected function query($method, $data)
     {
-        $process = curl_init(self::$hostname . "/89/Presentation/Service.svc/ajaxEndpoint/" . $method);
+        $process = curl_init(self::$hostname . $method);
         curl_setopt($process, CURLOPT_HTTPHEADER, self::$headers);
         //curl_setopt($process, CURLOPT_HEADER, 1);
         curl_setopt($process, CURLOPT_POSTFIELDS, json_encode($data));
