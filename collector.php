@@ -15,10 +15,11 @@ switch ($_POST['id']){
         require_once 'classes/lou_rankings/Collector.php';
         require_once 'classes/lou_api/LOU.php';
 		require_once 'config/db.php';
+        require_once 'config/server.php';
 
         Database::connect($_CONFIG['db_host'], $_CONFIG['db_user'], $_CONFIG['db_password'], $_CONFIG['db_database']);
 
-        $lou = new LOU($_POST['key'], "prodgame20.lordofultima.com");
+        $lou = new LOU($_POST['key'], $_CONFIG['server_hostname']);
 
         $collector = new Collector();
         $collector->collect();
