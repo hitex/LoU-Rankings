@@ -14,6 +14,9 @@ require_once("config/server.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>LoU world 43 timeline</title>
+<?php
+include "config/google_analytics.html";
+?>
 <style type="text/css">
 body {
     font-family: Arial;
