@@ -13,11 +13,11 @@ require_once 'DAO.php';
  */
 class DAOAlliance extends DAO {
 
-    public static RANK_BY_RANK = "alliance_ranking";
-    public static RANK_BY_CITIES = "alliance_cities_count";
-    public static RANK_BY_MEMBERS = "alliance_members_count";
-    public static RANK_BY_SCORE = "alliance_score";
-    public static RANK_BY_AVERAGE_SCORE = "alliance_average_score";
+    public static $RANK_BY_RANK = "alliance_ranking";
+    public static $RANK_BY_CITIES = "alliance_cities_count";
+    public static $RANK_BY_MEMBERS = "alliance_members_count";
+    public static $RANK_BY_SCORE = "alliance_score";
+    public static $RANK_BY_AVERAGE_SCORE = "alliance_average_score";
 
     public static function getByName($string)
     {
