@@ -139,9 +139,6 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence">Defensive Fame</a>
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence_r">Defensive Rank</a>
 </form>
-<?php
-    
-?>
 
 <?php
 echo $cgtg->draw();

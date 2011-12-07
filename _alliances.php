@@ -36,22 +36,27 @@ switch($_GET['type']){
     default:
     case "score":
         $dataFieldName = 'alliance_score';
+        $topFor = 'alliance_score';
         break;
     
     case "rank":
         $dataFieldName = 'alliance_ranking';
+        $topFor = 'alliance_score';
         break;
 		
 	case "avg_score":
         $dataFieldName = 'alliance_average_score';
+        $topFor = 'alliance_average_score';
         break;
 		
 	case "cities":
         $dataFieldName = 'alliance_cities_count';
+        $topFor = 'alliance_cities_count';
         break;
 		
 	case "members":
         $dataFieldName = 'alliance_members_count';
+        $topFor = 'alliance_members_count';
         break;
 }
 
@@ -105,6 +110,12 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
 
 <?php
 echo $cgtg->draw();
+
+echo "Top alliances: ";
+$topAlliances = DAOAlliance::getTop(DAODate::getLastDateSid(), $topFor);
+while ($topAlliance = mysql_fetch_array($topAlliances)) {
+    echo '<a href="index.php?id=alliances&alliances=' . $topAlliance['alliance_name'] . '&type=' . $_GET['type'] . '">' . $topAlliance['alliance_name'] . '</a> | ';
+}
 ?>
 
 <br/>
