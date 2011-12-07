@@ -1,19 +1,18 @@
-<html>
-    <head>
-        <title>LOU Server 43 collector</title>
-    </head>
-    <body>
 <?php
-
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set("display_errors", "1");
 
 require_once 'config/server.php';
-        
+?>
 
+<html>
+    <head>
+        <title>LOU <?php echo $_CONFIG['server_world'] ?> collector</title>
+    </head>
+    <body>
+<?php
 switch ($_POST['id']){
     case 'collect':
-        error_reporting(E_ALL ^ E_NOTICE);
         require_once 'classes/lou_rankings/Database.php';
         require_once 'classes/lou_rankings/Collector.php';
         require_once 'classes/lou_api/LOU.php';
