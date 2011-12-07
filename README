@@ -4,8 +4,8 @@ For examples please go to http://a.i3.lt/lou_rankings/ or look into ./examples/ 
 
 ### Requirements
 Server must have:
-PHP 5 with CURL enabled
-MySQL
+-PHP 5 with CURL enabled
+-MySQL
 
 All database settings is saved in ./config/db.php
 
