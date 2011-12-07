@@ -28,7 +28,7 @@ class DAOAlliance extends DAO {
     
     public static function getTop($dateSid, $rankBy, $number = 10)
     {
-        $query = "SELECT `alliances`.* FROM `alliances`, `dates` WHERE `dates`.`date_sid`='$dateSid' AND `alliances`.`date_sid`=`dates`.`date_sid` ORDER BY `alliances`.`$rankBy` ASC LIMIT $number";
+        $query = "SELECT `alliances`.* FROM `alliances`, `dates` WHERE `dates`.`date_sid`='$dateSid' AND `alliances`.`date_sid`=`dates`.`date_sid` ORDER BY `alliances`.`$rankBy` DESC LIMIT $number";
         $result = Database::query($query);
         return $result;
     }
