@@ -112,10 +112,13 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
 echo $cgtg->draw();
 
 echo "Top alliances: ";
+$allTop = array();
 $topAlliances = DAOAlliance::getTop(DAODate::getLastDateSid(), $topFor);
 while ($topAlliance = mysql_fetch_array($topAlliances)) {
-    echo '<a href="index.php?id=alliances&alliances=' . $topAlliance['alliance_name'] . '&type=' . $_GET['type'] . '">' . $topAlliance['alliance_name'] . '</a> | ';
+    $allTop[] = $topAlliance['alliance_name'];
+    echo '<a href="index.php?id=alliances&alliances=' . $topAlliance['alliance_name'] . '&type=' . $_GET['type'] . '">' . $topAlliance['alliance_name'] . '</a> [' . $topAlliance[$topFor] . '] | ';
 }
+echo '<a href="index.php?id=alliances&alliances=' . implode(",", $allTop) . '&type=' . $_GET['type'] . '">Compare All</a>';
 ?>
 
 <br/>

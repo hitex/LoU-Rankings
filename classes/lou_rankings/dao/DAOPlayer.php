@@ -27,7 +27,7 @@ class DAOPlayer extends DAO {
         return $result;
     }
     
-    public static function getTop($dateSid, $rankBy, $number = 10)
+    public static function getTop($dateSid, $rankBy, $number = 5)
     {
         $query = "SELECT `players`.* FROM `players`, `dates` WHERE `dates`.`date_sid`='$dateSid' AND `players`.`date_sid`=`dates`.`date_sid` ORDER BY `players`.`$rankBy` DESC LIMIT $number";
         $result = Database::query($query);

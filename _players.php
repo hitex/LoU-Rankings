@@ -144,10 +144,13 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
 echo $cgtg->draw();
 
 echo "Top players: ";
+$allTop = array();
 $topPlayers = DAOPlayer::getTop(DAODate::getLastDateSid(), $topFor);
 while ($topPlayer = mysql_fetch_array($topPlayers)) {
-    echo '<a href="index.php?id=players&players=' . $topPlayer['player_name'] . '&type=' . $_GET['type'] . '">' . $topPlayer['player_name'] . '</a> | ';
+    $allTop[] = $topPlayer['player_name'];
+    echo '<a href="index.php?id=players&players=' . $topPlayer['player_name'] . '&type=' . $_GET['type'] . '">' . $topPlayer['player_name'] . '</a> [' . $topPlayer[$topFor] . '] | ';
 }
+echo '<a href="index.php?id=players&players=' . implode(",", $allTop) . '&type=' . $_GET['type'] . '">Compare All</a>';
 ?>
 
 <br/>
