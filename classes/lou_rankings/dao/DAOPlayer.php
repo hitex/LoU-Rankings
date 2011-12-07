@@ -13,12 +13,12 @@ require_once 'DAO.php';
  */
 class DAOPlayer extends DAO {
     
-    public static RANK_BY_RANK = "player_ranking";
-    public static RANK_BY_CITIES = "player_ranking";
-    public static RANK_BY_DEFENSIVE_FAME = "player_defensive_fame";
-    public static RANK_BY_DEFENSIVE_RANK = "player_defensive_rank";
-    public static RANK_BY_OFFENSIVE_FAME = "player_offensive_fame";
-    public static RANK_BY_OFFENSIVE_RANK = "player_offensive_rank";
+    public static $RANK_BY_RANK = "player_ranking";
+    public static $RANK_BY_CITIES = "player_ranking";
+    public static $RANK_BY_DEFENSIVE_FAME = "player_defensive_fame";
+    public static $RANK_BY_DEFENSIVE_RANK = "player_defensive_rank";
+    public static $RANK_BY_OFFENSIVE_FAME = "player_offensive_fame";
+    public static $RANK_BY_OFFENSIVE_RANK = "player_offensive_rank";
 
     public static function getByName($string)
     {

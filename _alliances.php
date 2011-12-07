@@ -1,4 +1,5 @@
 <?php
+require_once 'classes/lou_rankings/dao/DAODate.php';
 require_once 'classes/lou_rankings/dao/DAOAlliance.php';
 require_once 'classes/lou_rankings/component/ComponentGoogleTimeGraph.php';
 
