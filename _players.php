@@ -2,8 +2,8 @@
 //error_reporting(E_ALL);
 //ini_set("display_errors", "1");
 
-require_once 'classes/lou_rankings/dao/DAOPlayer.php';
 require_once 'classes/lou_rankings/dao/DAODate.php';
+require_once 'classes/lou_rankings/dao/DAOPlayer.php';
 require_once 'classes/lou_rankings/component/ComponentGoogleTimeGraph.php';
 
 $cgtg = new ComponentGoogleTimeGraph();
