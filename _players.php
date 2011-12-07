@@ -133,24 +133,24 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
     <input type="submit" value="Submit" name="get"/><br/>
     <a href="index.php?id=players&players=<?php echo $players_str ?>&type=score">Score</a>
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=rank">Rank</a>
-	| <a href="index.php?id=players&players=<?php echo $players_str ?>&type=cities">Cities</a>
+    | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=cities">Cities</a>
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=offence">Offensive Fame</a>
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=offence_r">Offensive Rank</a>
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence">Defensive Fame</a>
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence_r">Defensive Rank</a>
 </form>
-<br/>
-
-Top players:
 <?php
-    $topPlayers = DAOPlayer::getTop(DAODate::getLastDateSid(), $topFor);
-    while ($topPlayer = mysql_fetch_array($topPlayers)) {
-        echo '<a href="index.php?id=players&players=' . $topPlayer['player_name'] . '&type=' . $_GET['type'] . '">' . $topPlayer['player_name'] . '</a> | ';
-    }
+    
 ?>
 
 <?php
 echo $cgtg->draw();
+
+echo "Top players: ";
+$topPlayers = DAOPlayer::getTop(DAODate::getLastDateSid(), $topFor);
+while ($topPlayer = mysql_fetch_array($topPlayers)) {
+    echo '<a href="index.php?id=players&players=' . $topPlayer['player_name'] . '&type=' . $_GET['type'] . '">' . $topPlayer['player_name'] . '</a> | ';
+}
 ?>
 
 <br/>
