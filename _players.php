@@ -3,6 +3,7 @@
 //ini_set("display_errors", "1");
 
 require_once 'classes/lou_rankings/dao/DAOPlayer.php';
+require_once 'classes/lou_rankings/dao/DAODate.php';
 require_once 'classes/lou_rankings/component/ComponentGoogleTimeGraph.php';
 
 $cgtg = new ComponentGoogleTimeGraph();
@@ -38,30 +39,37 @@ switch($_GET['type']){
     default:
     case "score":
         $dataFieldName = 'player_points';
+        $topFor = 'player_points';
         break;
 		
 	case "cities":
         $dataFieldName = 'player_cities';
+        $topFor = 'player_cities';
         break;
     
     case "rank":
         $dataFieldName = 'player_ranking';
+        $topFor = 'player_points';
         break;
     
     case "offence":
         $dataFieldName = 'player_offensive_fame';
+        $topFor = 'player_offensive_fame';
         break;
     
     case "defence":
         $dataFieldName = 'player_defensive_fame';
+        $topFor = 'player_defensive_fame';
         break;
     
     case "offence_r":
         $dataFieldName = 'player_offensive_rank';
+        $topFor = 'player_offensive_fame';
         break;
     
     case "defence_r":
         $dataFieldName = 'player_defensive_rank';
+        $topFor = 'player_defensive_fame';
         break;
 }
 
@@ -131,10 +139,19 @@ for ($i = 0; $i < $totalTimePoints; $i++) {
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence">Defensive Fame</a>
     | <a href="index.php?id=players&players=<?php echo $players_str ?>&type=defence_r">Defensive Rank</a>
 </form>
+<br/>
+
+Top players:
+<?php
+    $topPlayers = DAOPlayer::getTop(DAODate::getLastDateSid(), $topFor);
+    while ($topPlayer = mysql_fetch_array($topPlayers)) {
+        echo '<a href="index.php?id=players&players=' . $topPlayer['player_name'] . '&type=' . $_GET['type'] . '">' . $topPlayer['player_name'] . '</a> | ';
+    }
+?>
 
 <?php
 echo $cgtg->draw();
 ?>
 
 <br/>
-Link: <input type="text" value="<?php echo $_CONFIG['server_url'] ?>/index.php?id=players&players=<?php echo $players_str ?>" />
+Link: <input type="text" value="<?php echo $_CONFIG['server_url'] ?>/index.php?id=players&players=<?php echo $players_str ?>&type=<?php echo $_GET['type'] ?>" />

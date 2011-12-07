@@ -12,6 +12,14 @@ require_once 'DAO.php';
  * @author Vladas
  */
 class DAODate extends DAO {
-    //put your code here
+    
+    public static function getLastDateSid()
+    {
+        $query = "SELECT `date_sid` FROM `dates` ORDER BY `dates`.`date_sid` DESC LIMIT 1";
+        $result = Database::query($query);
+        $res = mysql_fetch_array($result);
+        return $res['date_sid'];
+    }
+    
 }
 ?>
