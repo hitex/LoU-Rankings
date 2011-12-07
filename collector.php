@@ -8,14 +8,16 @@
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set("display_errors", "1");
 
+require_once 'config/server.php';
+        
+
 switch ($_POST['id']){
     case 'collect':
         error_reporting(E_ALL ^ E_NOTICE);
         require_once 'classes/lou_rankings/Database.php';
         require_once 'classes/lou_rankings/Collector.php';
         require_once 'classes/lou_api/LOU.php';
-		require_once 'config/db.php';
-        require_once 'config/server.php';
+        require_once 'config/db.php';
         require_once 'config/collector.php';
         
         if ($_POST['collector_password'] != $_CONFIG['collector_password']) {
@@ -35,7 +37,7 @@ switch ($_POST['id']){
     
     default:
         echo '<form action="collector.php" method="POST">
-                    <h2>LOU Server 43 collector</h2>
+                    <h2>LOU ' . $_CONFIG['server_world'] . ' collector</h2>
                     Enter key:<br/>
                     <input type="text" name="key"/><br/>
                     <input type="text" name="collector_password"/><br/>
