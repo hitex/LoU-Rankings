@@ -7,7 +7,7 @@ Server must have:
 -PHP 5 with CURL enabled
 -MySQL
 
-All database settings is saved in ./config/db.php
+All configuration settings are saved in ./config/ folder.
 
 ### Collecting data
 Data collection is not performed automatically, so you must open ./collector.php via your web browser and paste there your SessionID. Only public data is collected.
