@@ -25,13 +25,24 @@ switch ($_POST['id']){
         }
 
         Database::connect($_CONFIG['db_host'], $_CONFIG['db_user'], $_CONFIG['db_password'], $_CONFIG['db_database']);
-
-        $lou = new LOU($_POST['key'], $_CONFIG['server_hostname']);
-
-        $collector = new Collector();
-        $collector->collect();
         
-        echo '<h2>Data collected successfully!</h2>';
+        $result = Database::query("SELECT * FROM `vars` WHERE `var_name`='collector_running'");
+        $row = mysql_fetch_assoc($result);
+        
+        if($row['var_name'] == 0){
+            
+            Database::query("UPDATE `vars` SET `var_value`='1' WHERE `var_name`='collector_running'");
+            $lou = new LOU($_POST['key'], $_CONFIG['server_hostname']);
+            $collector = new Collector();
+            $collector->collect();
+            Database::query("UPDATE `vars` SET `var_value`='0' WHERE `var_name`='collector_running'");
+            
+            echo '<h2>Data collected successfully!</h2>';
+        } else {
+            echo '<h2>Error! Data is already being collected.</h2>';
+        }
+
+        
         break;
     
     default:

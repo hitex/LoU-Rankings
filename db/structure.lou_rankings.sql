@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `alliances` (
   `alliance_members_count` int(11) DEFAULT NULL,
   PRIMARY KEY (`alliance_sid`,`date_sid`),
   KEY `fk_alliances_dates1` (`date_sid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=59693 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `dates` (
   `date_sid` int(11) NOT NULL AUTO_INCREMENT,
   `date_datetime` datetime DEFAULT NULL,
   PRIMARY KEY (`date_sid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=110 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `player_offensive_rank` int(11) DEFAULT NULL,
   PRIMARY KEY (`player_sid`,`date_sid`),
   KEY `fk_players_dates` (`date_sid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=888350 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,29 @@ CREATE TABLE IF NOT EXISTS `world_stats` (
   `world_total_players` int(11) DEFAULT NULL,
   PRIMARY KEY (`world_stat_sid`,`date_sid`),
   KEY `fk_global_stats_dates1` (`date_sid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=102 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vars`
+--
+
+DROP TABLE IF EXISTS `vars`;
+CREATE TABLE IF NOT EXISTS `vars` (
+  `var_sid` int(11) NOT NULL AUTO_INCREMENT,
+  `var_name` varchar(50) NOT NULL,
+  `var_value` text NOT NULL,
+  `var_description` text NOT NULL,
+  PRIMARY KEY (`var_sid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `vars`
+--
+
+INSERT INTO `vars` (`var_name`, `var_value`, `var_description`) VALUES
+('collector_running', '0', '0 - if data collection isn''t running.\r\n1 - if data collection is running.');
 
 --
 -- Constraints for dumped tables
