@@ -29,7 +29,7 @@ switch ($_POST['id']){
         $result = Database::query("SELECT * FROM `vars` WHERE `var_name`='collector_running'");
         $row = mysql_fetch_assoc($result);
         
-        if($row['var_name'] == 0){
+        if($row['var_value'] == 0){
             
             Database::query("UPDATE `vars` SET `var_value`='1' WHERE `var_name`='collector_running'");
             $lou = new LOU($_POST['key'], $_CONFIG['server_hostname']);
