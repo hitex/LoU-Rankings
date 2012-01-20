@@ -129,6 +129,15 @@ switch ($_GET['id']){
 if ($_SERVER['REMOTE_ADDR'] == "192.168.1.1") {
     //echo '<br/><a href="index.php?id=lab_alliance">_lab_alliance</a>';
 }
+
+
+// Inform users when data is refreshing.
+$result = Database::query("SELECT * FROM `vars` WHERE `var_name`='collector_running'");
+$row = mysql_fetch_assoc($result);
+if($row['var_value'] == 1){
+    echo '<br/>Note: Data is being updated now...';
+}
+
 ?>
 			</div>
 			<div id="footer">
