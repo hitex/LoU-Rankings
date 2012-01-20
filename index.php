@@ -13,7 +13,7 @@ require_once("config/server.php");
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>LoU world 43 timeline</title>
+<title>LoU world <?php echo $_CONFIG['server_world']; ?> timeline</title>
 <?php
 include "config/google_analytics.html";
 ?>
