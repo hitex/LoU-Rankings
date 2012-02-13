@@ -23,7 +23,7 @@ $result = Database::query("SELECT UNIX_TIMESTAMP(`date_datetime`) FROM `dates` O
 $row = mysql_fetch_assoc($result);
 $lastUpdateTime = intval($row[0]);
 
-if($lastUpdateTime + $_CONFIG['update_interval'] > time() || ) {
+if($lastUpdateTime + $_CONFIG['update_interval'] > time()) {
     echo '<h2>This server is configured to allow updates once in ' . round($_CONFIG['update_interval']/60/24, 1) . ' hours.<br/>Another data update can be run at ' . date("Y-m-d H:i:s", time() + $_CONFIG['update_interval']) . '</h2>';
 
 } else {
