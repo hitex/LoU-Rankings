@@ -1,4 +1,7 @@
 <?php
+
+$_CONFIG['version'] = "1.3.0";
+
 error_reporting(0);
 ini_set("display_errors", "0");
 //error_reporting(E_ALL);
@@ -13,7 +16,7 @@ require_once("config/server.php");
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>LoU <?php echo $_CONFIG['server_world']; ?> timeline</title>
+<title>LoU <?php echo $_CONFIG['server_world']; ?> timeline [<?php echo $_CONFIG['version']; ?>]</title>
 <?php
 include "config/google_analytics.html";
 ?>
