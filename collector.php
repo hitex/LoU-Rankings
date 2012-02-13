@@ -11,6 +11,11 @@ require_once 'config/server.php';
     </head>
     <body>
 <?php
+require_once 'classes/lou_rankings/Database.php';
+require_once 'classes/lou_rankings/Collector.php';
+require_once 'classes/lou_api/LOU.php';
+require_once 'config/db.php';
+require_once 'config/collector.php';
 
 Database::connect($_CONFIG['db_host'], $_CONFIG['db_user'], $_CONFIG['db_password'], $_CONFIG['db_database']);
         
@@ -25,11 +30,6 @@ if($lastUpdateTime + $_CONFIG['update_interval'] > time() || ) {
 
     switch ($_POST['id']){
         case 'collect':
-            require_once 'classes/lou_rankings/Database.php';
-            require_once 'classes/lou_rankings/Collector.php';
-            require_once 'classes/lou_api/LOU.php';
-            require_once 'config/db.php';
-            require_once 'config/collector.php';
             
             if (strval($_POST['collector_password']) != strval($_CONFIG['collector_password'])) {
                 echo '<h2>Incorrect password!</h2>';
