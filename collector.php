@@ -43,11 +43,9 @@ if($lastUpdateTime + $_CONFIG['update_interval'] > time()) {
                 break;
             }
                 
-            Database::query("UPDATE `vars` SET `var_value`='1' WHERE `var_name`='collector_running'");
             $lou = new LOU($_POST['key'], $_CONFIG['server_hostname']);
             $collector = new Collector();
             $collector->collect();
-            Database::query("UPDATE `vars` SET `var_value`='0' WHERE `var_name`='collector_running'");
             
             echo '<h2>Data collected successfully!</h2>';
             

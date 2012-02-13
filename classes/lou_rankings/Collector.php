@@ -42,6 +42,8 @@ class Collector {
         
         $totalPlayers = $louPlayer->getCount();
         
+        Database::query("UPDATE `vars` SET `var_value`='1' WHERE `var_name`='collector_running'");
+        
         $playerRankings = $louPlayer->getRange(0, $totalPlayers);
         $playerRankings = $this->_makeIndexed("i", $playerRankings);
         $offensiveData = $louPlayer->getRange(0, $totalPlayers, -1, LOUPlayer::$SORT_BY_OFFENSIVE_FAME, true, LOUPlayer::$TYPE_OFFENSIVE_FAME);
@@ -84,6 +86,8 @@ class Collector {
         }
 
         $this->_passed_collectPlayerRankings = true;
+        
+        Database::query("UPDATE `vars` SET `var_value`='0' WHERE `var_name`='collector_running'");
 
         $this->_log("Player rankings collected!");
     }
