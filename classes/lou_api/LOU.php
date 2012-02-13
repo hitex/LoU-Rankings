@@ -86,6 +86,10 @@ class LOU {
         if ($result == -1) {
             throw new Exception("Error! Server returned -1.");
         }
+        
+        if (is_null($result)) {
+            throw new Exception("Error! Server returned NULL.");
+        }
 
         return $result;
     }
