@@ -55,7 +55,7 @@ if($lastUpdateTime + $_CONFIG['update_interval'] > time()) {
             break;
         
         default:
-            if(!empty($_CONFIG['collector_password']) {
+            if(!empty($_CONFIG['collector_password'])) {
                 $passField = '<input type="password" name="collector_password"/><br/>';
             } else {
                 $passField = '<small>Authorisation is not required in this server.</small><br/>';
