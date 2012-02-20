@@ -20,7 +20,12 @@ require_once 'config/collector.php';
 Database::connect($_CONFIG['db_host'], $_CONFIG['db_user'], $_CONFIG['db_password'], $_CONFIG['db_database']);
         
 $result = Database::query("SELECT UNIX_TIMESTAMP(`date_datetime`) FROM `dates` ORDER BY `date_sid` DESC LIMIT 1");
-$lastUpdateTime = array_pop(mysql_fetch_assoc($result));
+
+if(mysql_num_rows($result) == 0) {
+    $lastUpdateTime = 0;
+} else {
+    $lastUpdateTime = array_pop(mysql_fetch_assoc($result));
+}
 
 if($lastUpdateTime + $_CONFIG['update_interval'] > time()) {
     echo '<h2>This server is configured to allow updates once in ' . round($_CONFIG['update_interval']/60/60, 1) . ' hours.<br/>Another data update can be run at ' . date("Y-m-d H:i:s", $lastUpdateTime + $_CONFIG['update_interval']) . '</h2>';
