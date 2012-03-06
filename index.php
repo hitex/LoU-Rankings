@@ -102,7 +102,7 @@ body {
 			<li><a href="index.php?id=players">Players</a></li>
 			<li><a href="index.php?id=alliances">Alliances</a></li>
 			<li><a href="index.php?id=about">About</a></li>
-            <li><a href="collector.php">Collector</a></li>
+            <li><a href="index.php?id=collector">Collector</a></li>
 		</ul>
 	</div>
 			<div id="content">
