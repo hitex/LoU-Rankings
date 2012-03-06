@@ -24,7 +24,7 @@ if($lastUpdateTime + $_CONFIG['update_interval'] > time()) {
 
 } else {
 
-    switch ($_POST['id']){
+    switch ($_POST['action']){
         case 'collect':
             
             if (strval($_POST['collector_password']) != strval($_CONFIG['collector_password'])) {
@@ -55,12 +55,12 @@ if($lastUpdateTime + $_CONFIG['update_interval'] > time()) {
                 $passField = '<small>Authorisation is not required on this server.</small><br/>';
             }
             
-            echo '<form action="collector.php" method="POST">
+            echo '<form action="index.php?id=collector" method="POST">
                         <h2>LOU ' . $_CONFIG['server_world'] . ' collector</h2>
                         Enter your LoU session id:<br/>
                         <input type="text" name="key"/><br/>
                         ' . $passField . '
-                        <input type="hidden" value="collect" name="id"/>
+                        <input type="hidden" value="collect" name="action"/>
                         <input type="submit" value="Submit" name="get"/>
                     </form>';
             break;
