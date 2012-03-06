@@ -1,6 +1,6 @@
 <?php
 
-$_CONFIG['version'] = "1.3.0";
+require_once "config/system.php";
 
 error_reporting(0);
 ini_set("display_errors", "0");
@@ -102,6 +102,7 @@ body {
 			<li><a href="index.php?id=players">Players</a></li>
 			<li><a href="index.php?id=alliances">Alliances</a></li>
 			<li><a href="index.php?id=about">About</a></li>
+            <li><a href="collector.php">Collector</a></li>
 		</ul>
 	</div>
 			<div id="content">
