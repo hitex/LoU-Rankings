@@ -3,14 +3,6 @@ error_reporting(E_ALL ^ E_NOTICE);
 ini_set("display_errors", "1");
 
 require_once 'config/server.php';
-?>
-
-<html>
-    <head>
-        <title>LOU <?php echo $_CONFIG['server_world'] ?> collector</title>
-    </head>
-    <body>
-<?php
 require_once 'classes/lou_rankings/Database.php';
 require_once 'classes/lou_rankings/Collector.php';
 require_once 'classes/lou_api/LOU.php';
@@ -76,5 +68,3 @@ if($lastUpdateTime + $_CONFIG['update_interval'] > time()) {
     
 }
 ?>
-    </body>
-</html>

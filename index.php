@@ -124,6 +124,10 @@ switch ($_GET['id']){
     case 'about':
         require_once '_about.php';
         break;
+        
+    case 'collector':
+        require_once '_collector.php';
+        break;
     
     default:
         require_once '_default.php';
