@@ -10,7 +10,7 @@ $cgtg = new ComponentGoogleTimeGraph();
 
 $players_str = $_GET['players'];
 if (!empty($_POST['players'])){
-    $player_str = $_POST['players'];
+    $players_str = $_POST['players'];
 }
 
 if (empty($players_str)){
