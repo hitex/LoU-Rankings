@@ -5,7 +5,10 @@ require_once 'classes/lou_rankings/component/ComponentGoogleTimeGraph.php';
 
 $cgtg = new ComponentGoogleTimeGraph();
 
-$alliances_str = $_REQUEST['alliances'];
+$alliances_str = $_GET['alliances'];
+if (!empty($_POST['alliances'])){
+    $alliances_str = $_POST['alliances'];
+}
 
 if (empty($alliances_str)){
     $alliances_str = $_COOKIE['alliances'];

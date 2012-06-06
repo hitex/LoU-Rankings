@@ -8,7 +8,10 @@ require_once 'classes/lou_rankings/component/ComponentGoogleTimeGraph.php';
 
 $cgtg = new ComponentGoogleTimeGraph();
 
-$players_str = $_REQUEST['players'];
+$players_str = $_GET['players'];
+if (!empty($_POST['players'])){
+    $player_str = $_POST['players'];
+}
 
 if (empty($players_str)){
     $players_str = $_COOKIE['players'];
