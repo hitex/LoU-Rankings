@@ -84,7 +84,7 @@ class LOU {
         $result = json_decode($return, true);
 
         if ($result == -1) {
-            throw new Exception("Error! Server returned -1.");
+            throw new Exception("Error! Server returned -1. This usually happens when an incorrect SessionID is used. Please make sure you use SessionID for {$_CONFIG['server_world']");
         }
         
         if (is_null($result)) {
