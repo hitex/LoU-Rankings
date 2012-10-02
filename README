@@ -9,6 +9,12 @@ Server must have:
 
 All configuration settings are saved in ./config/ folder.
 
+### How to get correct SessionID?
+Open Chrome browser's development console.
+Open "Network" tab and select one of the Poll requests on the left.
+There you will find something like  {"session":"12c2a9c7-ea51-4a52-84cb-2628b19ebf80","requestid":...  under Request Payload.
+Another way to get SessionID is to use Wireshark to capture packets and get the same SessionID from there. But the first way is a lot more easier.
+
 ### Collecting data
 Data collection is not performed automatically, so you must open ./collector.php via your web browser and paste there your SessionID. Only public data is collected.
 
